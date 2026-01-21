@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Hover Image</title>
+</head>
+<body>
+    <h1 style="text-align: center;">🎩 Magic Hover Image 🎩</h1>
+    <p style="text-align: center;">Hover your mouse over the image and watch it disappear!</p>
+
+    <!-- Image in the center -->
+    <div style="text-align: center; margin-top: 50px;">
+        <img id="myImage" src="https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png" 
+             alt="Demo Image" width="300" style="transition: transform 0.5s;">
+    </div>
+
+    <!-- Button to toggle image manually -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="toggleBtn">Show/Hide Image</button>
+    </div>
+
+    <script>
+        const img = document.getElementById('myImage');
+        const btn = document.getElementById('toggleBtn');
+
+        // Hover effect: disappear on hover, reappear when mouse leaves
+        img.addEventListener('mouseenter', () => {
+            img.style.display = 'none';
+        });
+
+        img.addEventListener('mouseleave', () => {
+            img.style.display = 'block';
+        });
+
+        // Optional: button to manually toggle image
+        btn.addEventListener('click', () => {
+            if (img.style.display === 'none') {
+                img.style.display = 'block';
+            } else {
+                img.style.display = 'none';
+            }
+        });
+
+        // Fun effect: when mouse hovers, scale up slightly before disappearing
+        img.addEventListener('mouseenter', () => {
+            img.style.transform = 'scale(1.2)';
+        });
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
